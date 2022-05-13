@@ -48,6 +48,12 @@ Body:
     Commands:
       changedress: true
       resurrect: true
+      alootid: true
+      help: true
+      rates: true
+      commands: true
+      autotrade: true
+      load: true
     Permissions:
       # without this basic permissions regular players could not trade or party
       can_trade: true
@@ -228,14 +234,14 @@ Body:
       can_party: true
       command_enable: true
       all_skill: false
-      all_equipment: false
-      skill_unconditional: false
+      all_equipment: true
+      skill_unconditional: true
       use_check: true
       use_changemaptype: true
       all_commands: true
       channel_admin: true
       can_trade_bounded: true
-      item_unconditional: false
+      item_unconditional: true
       bypass_stat_onclone: true
       bypass_max_stat: true
       #all_permission: true

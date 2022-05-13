@@ -10655,13 +10655,17 @@ void pc_setmadogear(struct map_session_data *sd, bool flag, e_mado_type type)
 /*==========================================
  * Check if player can drop an item
  *------------------------------------------*/
-bool pc_candrop(struct map_session_data *sd, struct item *item)
+int pc_candrop(struct map_session_data *sd, struct item *item)
 {
-	if( item && ((item->expire_time || (item->bound && !pc_can_give_bounded_items(sd))) || (itemdb_ishatched_egg(item))) )
-		return false;
-	if( !pc_can_give_items(sd) || sd->sc.cant.drop) //check if this GM level can drop items
-		return false;
-	return (itemdb_isdropable(item, pc_get_group_level(sd)));
+    if( item && item->expire_time )
+        return 0;
+    if( !pc_can_give_items(sd) ) //check if this GM level can drop items
+        return 0;
+    if ( pc_get_group_level(sd) >= 1 && pc_get_group_level(sd) <= 99 ){ // your group you want to disable
+        clif_displaymessage (sd->fd, msg_txt(426));
+        return 0;
+    }
+    return (itemdb_isdropable(item, pc_get_group_level(sd)));
 }
 
 /*==========================================

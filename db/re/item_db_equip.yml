@@ -55515,6 +55515,27 @@ Body:
     Name: Dark Priest Egg
     Type: Petegg
     Buy: 20
+  - Id: 10000
+    AegisName: Valk_Shield
+    Name: Valk Shield
+    Type: Armor
+    View: 2246
+    Weight: 20
+    Attack: 100
+    MagicAttack: 100
+    Defense: 150
+    Slots: 1
+    Locations:
+      Costume_Garment: true
+    ArmorLevel: 1
+    Refineable: true
+    Flags:
+      DropEffect: RED_PILLAR
+    Script: |
+      bonus bDef,150;
+      bonus bDefRate,150;
+      bonus bMdef,150;
+      bonus bMdefRate,150;
   - Id: 10001
     AegisName: Skull_Helm
     Name: Skull Helm

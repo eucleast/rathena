@@ -30,6 +30,10 @@
 		Zeny -= .@Price;
 	}
 	specialeffect2 EF_HEAL2;
+	specialeffect2 EF_INCAGILITY;
+	sc_start SC_INCREASEAGI,360000,10;
+	specialeffect2 EF_BLESSING;
+	sc_start SC_BLESSING,360000,10;
 	percentheal 100,100;
 	if (.@Buffs) {
 		specialeffect2 EF_INCAGILITY;
@@ -84,3 +88,4 @@ ecl_in01,45,60,4	duplicate(Healer)	Healer#ecl	909
 malangdo,132,114,6	duplicate(Healer)	Healer#mal	909
 malaya,227,204,6	duplicate(Healer)	Healer#ma	909
 mora,55,152,4	duplicate(Healer)	Healer#mora	909
+caspen,158,210,4	duplicate(Healer)	Healer#caspen	909
