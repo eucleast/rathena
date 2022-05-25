@@ -14,38 +14,135 @@
 //============================================================
 
 caspen,180,222,4	script	Stylist#custom_stylist	122,{
-	setarray .@Styles[1],
-		getbattleflag("max_cloth_color"),
-		getbattleflag("max_hair_style"),
-		getbattleflag("max_hair_color");
-	setarray .@Look[1],
-		LOOK_CLOTHES_COLOR,
-		LOOK_HAIR,
-		LOOK_HAIR_COLOR;
-	set .@s, select(" ~ Cloth color: ~ Hairstyle: ~ Hair color");
-	set .@Revert, getlook(.@Look[.@s]);
-	set .@Style,1;
-	while(1) {
-		setlook .@Look[.@s], .@Style;
-		message strcharinfo(0),"This is style #"+.@Style+".";
-		set .@menu$, " ~ Next (^0055FF"+((.@Style!=.@Styles[.@s])?.@Style+1:1)+"^000000): ~ Previous (^0055FF"+((.@Style!=1)?.@Style-1:.@Styles[.@s])+"^000000): ~ Jump to...: ~ Revert to original (^0055FF"+.@Revert+"^000000)";
-		switch(select(.@menu$)) {
+	doevent "super_stylist_main::OnTalk";
+}
+
+
+-	script	super_stylist_main	-1,{
+	OnTalk:
+		.@eac = eaclass();
+		.@gm_level = getgmlevel();
+	cutin "prm_1",2;
+	mes "^FF0000[ Super Stylist - Introduction ]^000000";
+	mes "Hi "+strcharinfo(0)+", I'm GimanoRO's super stylist.";
+	mes "I can change your character appearance ";
+	switch (select(
+		"Open Dress Room",
+		"Cancel"
+	)) {
 		case 1:
-			set .@Style, ((.@Style != .@Styles[.@s]) ? .@Style+1 : 1);
-			break;
+			next;
+			opendressroom(0);
+
+			if (BaseClass != Job_Summoner) {
+				set @hairstylemaxf,97;
+				set @hairstylemaxm,82;
+			} else {
+				set @hairstylemaxf,6;
+				set @hairstylemaxm,6;
+			}
+			if (
+//				Class == Job_Rune_Knight_T || 
+				Class == Job_Warlock_T || 
+				Class == Job_Ranger_T || 
+				Class == Job_Arch_Bishop_T || 
+				Class == Job_Mechanic_T || 
+				Class == Job_Guillotine_Cross_T || 
+				Class == Job_Royal_Guard_T || 
+				Class == Job_Sorcerer_T || 
+				Class == Job_Minstrel_T || 
+				Class == Job_Wanderer_T || 
+//				Class == Job_Sura_T || 
+				Class == Job_Genetic_T
+//				Class == Job_Shadow_Chaser_T
+			) {
+				set @bodystylemax,getBattleFlag("max_body_style");
+			} else {
+				set @bodystylemax,0;
+			}
+			Lmain:
+				mes "^FF0000[ Super Stylist - Dress Room ]^000000";
+				mes "Ok, use the dress room to pick a style";
+				switch (select(
+					"Change Hairstyle",
+					"Change Hairdye",
+					"Change Cloth Color",
+					"Change Bodystyle"
+				)) {
+					case 1:
+						set .@hairstylemin,getBattleFlag("min_hair_style");
+						if (.@eac != EAJL_SUMMONER) {
+						set .@hairstylemaxf,97;
+						set .@hairstylemaxm,82;
+						} else {
+							set .@hairstylemaxf,31;
+							set .@hairstylemaxm,31;
+						}
+						next;
+						mes "^FF0000[ Super Stylist - Hairstyle ]^000000";
+						mes "Insert a hairstyle number";
+						if (Sex) {
+							mes "Hairstyles: " +.@hairstylemin+ " to " +.@hairstylemaxm;
+						} else {
+							mes "Hairstyles: " +.@hairstylemin+ " to " +.@hairstylemaxf;
+						}
+						input .@hairstyle;
+						if (Sex) {
+							if (.@hairstyle < .@hairstylemin || .@hairstyle > .@hairstylemaxm) { 
+							set .@hairstyle,0; 
+							}
+						} else {
+							if (.@hairstyle < .@hairstylemin || .@hairstyle > .@hairstylemaxf) { 
+							set .@hairstyle,0; 
+							}
+						}
+						setlook LOOK_HAIR,.@hairstyle;
+						next;
+						break;
+					case 2:
+						next;
+						set .@hairdyemin,getBattleFlag("min_hair_color");
+						set .@hairdyemax,getBattleFlag("max_hair_color");
+						mes "^FF0000[ Super Stylist - Hairdye ]^000000";
+						mes "Insert a hairdye number";
+						mes "Hairdyes: " +.@hairdyemin+ " to " +.@hairdyemax;
+						input .@hairdye;
+						if (.@hairdye < .@hairdyemin || .@hairdye > .@hairdyemax) { 
+						set .@hairdye,0; 
+						}
+						setlook LOOK_HAIR_COLOR,.@hairdye;
+						next;
+						break;
+					case 3:
+						next;
+						set .@clothcolormin,getBattleFlag("min_cloth_color");
+						set .@clothcolormax,getBattleFlag("max_cloth_color");
+						mes "^FF0000[ Super Stylist - Cloth Color ]^000000";
+						mes "Insert a cloth color number";
+						mes "Cloth Colors: " +.@clothcolormin+ " to " +.@clothcolormax;
+						input .@clothcolor;
+						if (.@clothcolor < .@clothcolormin || .@clothcolor > .@clothcolormax) { 
+						set .@clothcolor,0; 
+						}
+						setlook LOOK_CLOTHES_COLOR,.@clothcolor;
+						next;
+						break;
+					case 4:
+						mes "Insert a bodystyle number";
+						mes "Bodystyles: " +getBattleFlag("min_body_style")+ " to " +getBattleFlag("max_body_style");
+						input @bodystyle;
+						if (@bodystyle < 0 || @bodystyle > @bodystylemax) {
+							set @bodystyle,0;
+						}
+						setlook LOOK_BODY2,@bodystyle;
+						next;
+						break;
+				}
+				goto Lmain;
 		case 2:
-			set .@Style, ((.@Style != 1) ? .@Style-1 : .@Styles[.@s]);
 			break;
-		case 3:
-			message strcharinfo(0),"Choose a style between 1 - "+.@Styles[.@s]+".";
-			input .@Style,0,.@Styles[.@s];
-			if (!.@Style)
-				set .@Style, rand(1,.@Styles[.@s]);
-			break;
-		case 4:
-			set .@Style, .@Revert;
-			setlook .@Look[.@s], .@Revert;
-			break;
-		}
 	}
+	cutin "",255;
+	close2;
+	end;
 }

@@ -47,8 +47,16 @@ Body:
     Level: 0
     Commands:
       changedress: true
-      resurrect: true
+      autoloot: true
+      jump: true
+      where: true
+      storage: true
+      mobinfo: true
+      iteminfo: true
+      whodrops: true
+      hominfo: true
       alootid: true
+      go: true
       help: true
       rates: true
       commands: true

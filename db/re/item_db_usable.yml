@@ -124,7 +124,7 @@ Body:
     Name: White Potion
     Type: Healing
     Buy: 1200
-    Weight: 150
+    Weight: 1
     Script: |
       itemheal rand(325,405),0;
   - Id: 505
@@ -132,7 +132,7 @@ Body:
     Name: Blue Potion
     Type: Healing
     Buy: 5000
-    Weight: 150
+    Weight: 1
     Script: |
       itemheal 0,rand(40,60);
   - Id: 506
@@ -1147,7 +1147,7 @@ Body:
     Flags:
       BuyingStore: true
     Delay:
-      Duration: 5000
+      Duration: 0
       Status: Reuse_Limit_F
     Script: |
       percentheal 100,100;
@@ -1156,11 +1156,11 @@ Body:
     Name: Yggdrasil Seed
     Type: Healing
     Buy: 5000
-    Weight: 300
+    Weight: 30
     Flags:
       BuyingStore: true
     Delay:
-      Duration: 3000
+      Duration: 0
       Status: Reuse_Limit_G
     Script: |
       percentheal 50,50;

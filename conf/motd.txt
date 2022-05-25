@@ -1,3 +1,3 @@
 // Internal default is limited to 128 lines.  If you need more, you will need to modify the MOTD_LINE_SIZE definition in pc.cpp
-Welcome to Gimano Ragnarok Online! Please report any bugs you find to mohdyazid97@gmail.com
+Welcome to Gimano Ragnarok Online! Please report any bugs you find.
 Use @commands for list of available commands
