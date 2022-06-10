@@ -17,26 +17,56 @@
 
 -	script	FloatingRates	-1,{
 OnInit:
-//add any other HOURS
-OnHour00:
-OnHour06:
-OnHour12:
-OnHour18:
-//-------------------
-	set $@brate,rand(100,150);
-	set $@jrate,rand(100,150);
-	set $@drate,rand(100,150);
-	//Base exp
-	setbattleflag("base_exp_rate",$@brate);
-	//Job exp
-	setbattleflag("job_exp_rate",$@jrate);
-	//Drops
-	setbattleflag("item_rate_common",$@drate);
-	setbattleflag("item_rate_heal",$@drate);
-	setbattleflag("item_rate_use",$@drate);
-	setbattleflag("item_rate_equip",$@drate,true); // Apply new rates to configs set above
-	//we don't change card drops rate, because these values won't change them anyway
-	
-	announce "Current rates are: 1."+($@brate-100)+"x 1."+($@jrate-100)+"x 1."+($@drate-100)+"x",bc_all,0xFF6060;
+OnClock0001:
+	if(gettime(4)==6  || gettime(4)==0 ) {
+		set .br,getbattleflag("base_exp_rate")*5;
+		set .jr,getbattleflag("job_exp_rate")*5;
+		set .nr,getbattleflag("item_rate_common")*2;
+		set .br,getbattleflag("item_rate_common_boss")*2;
+		set .mr,getbattleflag("item_rate_common_mvp")*2;
+		set .nhr,getbattleflag("item_rate_heal")*2;
+		set .bhr,getbattleflag("item_rate_heal_boss")*2;
+		set .mhr,getbattleflag("item_rate_heal_mvp")*2;
+		set .nur,getbattleflag("item_rate_use")*2;
+		set .bur,getbattleflag("item_rate_use_boss")*2;
+		set .mur,getbattleflag("item_rate_use_mvp")*2;
+		set .ner,getbattleflag("item_rate_equip")*2;
+		set .ber,getbattleflag("item_rate_equip_boss")*2;
+		set .mer,getbattleflag("item_rate_equip_mvp")*2;
+		set .ncr,getbattleflag("item_rate_card")*2;
+		set .bcr,getbattleflag("item_rate_card_boss")*2;
+		set .mcr,getbattleflag("item_rate_card_mvp")*2;
+		setbattleflag("base_exp_rate"), .br;
+		setbattleflag("job_exp_rate"), .jr;
+		setbattleflag("item_rate_common"), .nr;
+		setbattleflag("item_rate_common_boss"), .br;
+		setbattleflag("item_rate_common_mvp"), .mr;
+		setbattleflag("item_rate_heal"), .nhr;
+		setbattleflag("item_rate_heal_boss"), .bhr;
+		setbattleflag("item_rate_heal_mvp"), .mhr;
+		setbattleflag("item_rate_use"), .nur;
+		setbattleflag("item_rate_use_boss"), .bur;
+		setbattleflag("item_rate_use_mvp"), .mur;
+		setbattleflag("item_rate_equip"), .ner;
+		setbattleflag("item_rate_equip_boss"), .ber;
+		setbattleflag("item_rate_equip_mvp"), .mer;
+		setbattleflag("item_rate_card"), .ncr;
+		setbattleflag("item_rate_card_boss"), .bcr;
+		setbattleflag("item_rate_card_mvp"), .mcr;
+		atcommand "@reloadmobdb";
+	end;
+	}
+if(gettime(4) == 1)
+	{
+		announce "Weekend Exp Event is finished",bc_all,0xFF6060;
+		atcommand "@reloadbattleconf";
+		atcommand "@reloadmobdb";
+	}
+end;
+OnMinute02:
+	if(gettime(4)==6  || gettime(4)==0 )
+	{
+		announce "Weekend Exp Event(Base:"+.br/100+"x, Job:"+.jr/100+"x, Drops all 2x times) is active!!",bc_all,0xFF6060;
+	}
 	end;
 }

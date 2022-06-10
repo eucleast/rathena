@@ -80311,14 +80311,6 @@ Body:
     EquipLevelMin: 170
     Refineable: true
     View: 623
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoSell: true
-      NoCart: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus bAllStats,1;
       bonus bMdef,5;
@@ -80348,14 +80340,6 @@ Body:
     EquipLevelMin: 170
     Refineable: true
     View: 624
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoSell: true
-      NoCart: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
     Script: |
       .@r = getrefine();
       bonus bAllStats,1;
@@ -80386,14 +80370,6 @@ Body:
     EquipLevelMin: 170
     Refineable: true
     View: 626
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoSell: true
-      NoCart: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
     Script: |
       .@r = getrefine();
       bonus bAllStats,1;
@@ -80422,14 +80398,6 @@ Body:
     EquipLevelMin: 170
     Refineable: true
     View: 637
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoSell: true
-      NoCart: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
     Script: |
       .@r = getrefine();
       bonus bAllStats,1;
@@ -80458,14 +80426,6 @@ Body:
     EquipLevelMin: 170
     Refineable: true
     View: 627
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoSell: true
-      NoCart: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
     Script: |
       .@r = getrefine();
       bonus bAllStats,1;
@@ -80506,14 +80466,6 @@ Body:
     EquipLevelMin: 170
     Refineable: true
     View: 628
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoSell: true
-      NoCart: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
     Script: |
       .@r = getrefine();
       bonus bAllStats,1;
@@ -80541,14 +80493,6 @@ Body:
     EquipLevelMin: 170
     Refineable: true
     View: 629
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoSell: true
-      NoCart: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
     Script: |
       .@r = getrefine();
       bonus bAllStats,1;
@@ -80576,14 +80520,6 @@ Body:
     EquipLevelMin: 170
     Refineable: true
     View: 630
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoSell: true
-      NoCart: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
     Script: |
       .@r = getrefine();
       bonus bSPrecovRate,20;
@@ -80613,14 +80549,6 @@ Body:
     EquipLevelMin: 170
     Refineable: true
     View: 631
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoSell: true
-      NoCart: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
     Script: |
       .@r = getrefine();
       bonus bAllStats,1;
@@ -80649,14 +80577,6 @@ Body:
     EquipLevelMin: 170
     Refineable: true
     View: 633
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoSell: true
-      NoCart: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
     Script: |
       .@r = getrefine();
       bonus bAllStats,1;
@@ -80687,14 +80607,6 @@ Body:
     EquipLevelMin: 170
     Refineable: true
     View: 635
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoSell: true
-      NoCart: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
     Script: |
       .@r = getrefine();
       bonus bAllStats,1;
@@ -80722,14 +80634,6 @@ Body:
     EquipLevelMin: 170
     Refineable: true
     View: 1141
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoSell: true
-      NoCart: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
     Script: |
       .@r = getrefine();
       bonus bAllStats,1;
@@ -80758,14 +80662,6 @@ Body:
     EquipLevelMin: 170
     Refineable: true
     View: 1140
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoSell: true
-      NoCart: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
     Script: |
       .@r = getrefine();
       bonus bAllStats,1;
@@ -171202,3 +171098,58 @@ Body:
     WeaponLevel: 5
     EquipLevelMin: 210
     Refineable: true
+
+#custom
+  - Id: 10000
+    AegisName: Valk_Shield
+    Name: Valk Shield
+    Type: Armor
+    View: 2246
+    Weight: 20
+    Attack: 100
+    MagicAttack: 100
+    Defense: 150
+    Slots: 1
+    Locations:
+      Costume_Garment: true
+    ArmorLevel: 1
+    Refineable: true
+    Flags:
+      DropEffect: RED_PILLAR
+    Script: |
+      bonus bDef,150;
+      bonus bDefRate,150;
+      bonus bMdef,150;
+      bonus bMdefRate,150;
+  - Id: 28953
+    AegisName: Poring_B_Shield
+    Name: Poring Battle Shield
+    Type: Armor
+    Defense: 80
+    Slots: 1
+    Locations:
+      Left_Hand: true
+    ArmorLevel: 1
+    EquipLevelMin: 150
+    Refineable: true
+    Trade:
+      Override: 100
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    View: 1   # unknown view
+    Script: |
+      .@r = getrefine();
+      bonus2 bSubSize,Size_All,2*(.@r/3);
+      bonus2 bMagicSubSize,Size_All,2*(.@r/3);
+      if (.@r>=7) {
+         bonus bMaxHPrate,5;
+         bonus bMaxSPrate,5;
+      }
+      if (.@r>=9) {
+         bonus bAspd,1;
+      }
+      if (.@r>=12) {
+         autobonus "{ bonus2 bHPRegenRate,100,1000; }",50,4000,BF_MAGIC;
+         bonus bShortWeaponDamageReturn,1;
+      }
