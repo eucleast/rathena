@@ -10,7 +10,11 @@
 //= One-click automatic mount rentals.
 //============================================================
 
+<<<<<<< HEAD
 caspen,135,216,5	script	Universal Rental	726,{
+=======
+caspen,135,216,5	script	Universal Rental NPC	726,{
+>>>>>>> 2e87e48da3875bab331d1806e47b8f468658e27b
 	if (ismounting()) {
 		message strcharinfo(0),"You must first remove your mount.";
 		end;
