@@ -1,6 +1,6 @@
 # This file is a part of rAthena.
 #   Copyright(C) 2021 rAthena Development Team
-#   https://rathena.org - https://github.com/rathena
+#   https:#rathena.org - https:#github.com/rathena
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -13,7 +13,7 @@
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with this program. If not, see <http://www.gnu.org/licenses/>.
+# along with this program. If not, see <http:#www.gnu.org/licenses/>.
 #
 ###########################################################################
 # Item Database
@@ -1146,12 +1146,12 @@ Body:
     Weight: 300
     Flags:
       BuyingStore: true
-<<<<<<< HEAD
-=======
+#<<<<<<< HEAD
+#=======
     Delay:
       Duration: 0
       Status: Reuse_Limit_F
->>>>>>> 2e87e48da3875bab331d1806e47b8f468658e27b
+#>>>>>>> 2e87e48da3875bab331d1806e47b8f468658e27b
     Script: |
       percentheal 100,100;
   - Id: 608
@@ -1162,12 +1162,12 @@ Body:
     Weight: 30
     Flags:
       BuyingStore: true
-<<<<<<< HEAD
-=======
+#<<<<<<< HEAD
+#=======
     Delay:
       Duration: 0
       Status: Reuse_Limit_G
->>>>>>> 2e87e48da3875bab331d1806e47b8f468658e27b
+#>>>>>>> 2e87e48da3875bab331d1806e47b8f468658e27b
     Script: |
       percentheal 50,50;
   - Id: 609
@@ -43675,25 +43675,25 @@ Body:
     Script: |
       .@r = rand(1,10);
       if (.@r == 1)
-         sc_start SC_PACKING_ENVELOPE1,30000,33; // +atk
+         sc_start SC_PACKING_ENVELOPE1,30000,33; # +atk
       else if (.@r == 2)
-         sc_start SC_PACKING_ENVELOPE2,30000,33; // +matk
+         sc_start SC_PACKING_ENVELOPE2,30000,33; # +matk
       else if (.@r == 3)
-         sc_start SC_PACKING_ENVELOPE3,30000,3; // +hp%
+         sc_start SC_PACKING_ENVELOPE3,30000,3; # +hp%
       else if (.@r == 4)
-         sc_start SC_PACKING_ENVELOPE4,30000,3; // +sp%
+         sc_start SC_PACKING_ENVELOPE4,30000,3; # +sp%
       else if (.@r == 5)
-         sc_start SC_PACKING_ENVELOPE5,30000,33; // +flee
+         sc_start SC_PACKING_ENVELOPE5,30000,33; # +flee
       else if (.@r == 6)
-         sc_start SC_PACKING_ENVELOPE6,30000,3; // +aspd
+         sc_start SC_PACKING_ENVELOPE6,30000,3; # +aspd
       else if (.@r == 7)
-         sc_start SC_PACKING_ENVELOPE7,30000,33; // +def
+         sc_start SC_PACKING_ENVELOPE7,30000,33; # +def
       else if (.@r == 8)
-         sc_start SC_PACKING_ENVELOPE8,30000,33; // +mdef
+         sc_start SC_PACKING_ENVELOPE8,30000,33; # +mdef
       else if (.@r == 9)
-         sc_start SC_PACKING_ENVELOPE9,30000,33; // +crit
+         sc_start SC_PACKING_ENVELOPE9,30000,33; # +crit
       else
-         sc_start SC_PACKING_ENVELOPE10,30000,33; // +hit
+         sc_start SC_PACKING_ENVELOPE10,30000,33; # +hit
       if (getequipid(EQI_HEAD_MID) == 15385)
          warp "verus04",115,243;
       /* todo check map x y */
@@ -49231,7 +49231,7 @@ Body:
     Type: Usable
     Weight: 10
     Script: |
-      addhomintimacy 100; // !TODO: Confirm increase amount
+      addhomintimacy 100; # !TODO: Confirm increase amount
   - Id: 100376
     AegisName: Royal_Bow_K_Cube
     Name: Royal Bow Remodeling Cube
@@ -49950,7 +49950,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      /* laphine_synthesis(); */
+      laphine_synthesis();
   - Id: 100626
     AegisName: GrayWolf_7_Ticket
     Name: Gray Wolf +7 Refinement Box
